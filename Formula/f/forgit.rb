@@ -17,8 +17,8 @@ class Forgit < Formula
     zsh_completion.install "completions/git-forgit.zsh" => "_git-forgit"
     inreplace "forgit.plugin.zsh", 'FORGIT="$INSTALL_DIR', "FORGIT=\"#{opt_prefix}"
     inreplace "conf.d/forgit.plugin.fish",
-              'set -x FORGIT "$FORGIT_INSTALL_DIR/bin/git-forgit"',
-              "set -x FORGIT \"#{opt_prefix}/bin/git-forgit\""
+              "set -l install_dir (dirname (status dirname))",
+              "set -l install_dir #{opt_prefix}"
     pkgshare.install "conf.d/forgit.plugin.fish"
     pkgshare.install "forgit.plugin.zsh"
     pkgshare.install_symlink "forgit.plugin.zsh" => "forgit.plugin.sh"
