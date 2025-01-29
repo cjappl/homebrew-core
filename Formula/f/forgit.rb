@@ -14,7 +14,7 @@ class Forgit < Formula
     sha256 cellar: :any_skip_relocation, all: "fa0882feea2e96fc1e5bb8819be7b06534b5c73e8470f90ff368acf8a3936d1a"
   end
 
-  depends_on "fzf"
+  depends_on "fzf" => ">=0.49.0"
 
   def install
     bin.install "bin/git-forgit"
