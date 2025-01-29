@@ -9,7 +9,7 @@ class Forgit < Formula
     sha256 cellar: :any_skip_relocation, all: "cc481658d635f7b71123685cecbcbd00bbefe6e1c6445bb35c7a196e57d68f81"
   end
 
-  depends_on "fzf"
+  depends_on "fzf" => ">=0.49.0"
 
   def install
     bin.install "bin/git-forgit"
@@ -18,7 +18,7 @@ class Forgit < Formula
     inreplace "forgit.plugin.zsh", 'FORGIT="$INSTALL_DIR', "FORGIT=\"#{opt_prefix}"
     inreplace "conf.d/forgit.plugin.fish",
               "set -l install_dir (dirname (status dirname))",
-              "set -l install_dir #{opt_prefix}"
+              "set -l install_dir \"#{opt_prefix}"
     pkgshare.install "conf.d/forgit.plugin.fish"
     pkgshare.install "forgit.plugin.zsh"
     pkgshare.install_symlink "forgit.plugin.zsh" => "forgit.plugin.sh"
